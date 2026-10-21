@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-POSRESIK PUSKESMAS KETROWONOJOYO</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #00a896;
+            --primary-dark: #028090;
+            --secondary-color: #f4a261;
+            --bg-light: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.1);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+            background-color: rgba(0, 168, 150, 0.08);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+            padding: 60px 0;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
+        .badge-puskesmas {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* --- ARTICLE CARDS GRID --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            border-radius: var(--radius-lg);
+            padding: 30px 25px;
+            color: var(--white);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Custom Gradients for Cards */
+        .card-1 { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); } /* Pink/Red */
+        .card-2 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); } /* Green */
+        .card-3 { background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); } /* Orange */
+        .card-4 { background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); } /* Purple */
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-card {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-card:hover {
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        /* --- DETAILED ARTICLE MODAL / SECTION --- */
+        .article-detail {
+            display: none;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            margin-top: 30px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .article-detail.active {
+            display: block;
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .article-header h2 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+        }
+
+        .btn-close-article {
+            background: #f0f0f0;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .btn-close-article:hover {
+            background: #e0e0e0;
+        }
+
+        .article-content h3 {
+            color: var(--primary-dark);
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            color: #4a5568;
+            font-size: 0.98rem;
+        }
+
+        .article-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* --- ADDITIONAL INFO SECTIONS --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            box-shadow: var(--shadow-soft);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-dark);
+        }
+
+        .myth-fact-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .myth-title {
+            color: #e53e3e;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .fact-title {
+            color: #38a169;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* --- QUIZ SECTION --- */
+        .quiz-container {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            width: 10%;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .quiz-header-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .option-btn {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 0.98rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary-color);
+            background: #f0fdf4;
+        }
+
+        .option-btn.selected {
+            border-color: var(--primary-color);
+            background: #e6fffa;
+            font-weight: 600;
+        }
+
+        .option-prefix {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .option-btn.selected .option-prefix {
+            background: var(--primary-color);
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .btn-quiz {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .btn-prev {
+            background: #e2e8f0;
+            color: var(--text-dark);
+        }
+
+        .btn-prev:hover:not(:disabled) {
+            background: #cbd5e1;
+        }
+
+        .btn-next {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-next:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-quiz:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Quiz Results Styles */
+        .quiz-result {
+            display: none;
+            text-align: center;
+        }
+
+        .quiz-result.active {
+            display: block;
+        }
+
+        .score-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto 30px auto;
+            box-shadow: 0 10px 20px rgba(0, 168, 150, 0.3);
+        }
+
+        .score-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: var(--radius-md);
+        }
+
+        .stat-card .val {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stat-card .lbl {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .review-section {
+            text-align: left;
+            margin-top: 30px;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 25px;
+        }
+
+        .review-item {
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            padding: 18px;
+            margin-bottom: 15px;
+            border-left: 4px solid #cbd5e1;
+        }
+
+        .review-item.correct { border-left-color: #38a169; }
+        .review-item.incorrect { border-left-color: #e53e3e; }
+
+        .review-q {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .review-ans {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .review-exp {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            background: var(--white);
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        /* --- ABOUT & CONSULTATION --- */
+        .about-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .consult-box {
+            background: linear-gradient(135deg, #e6fffa 0%, #ebf8ff 100%);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            margin-top: 20px;
+            border: 1px solid #b2f5ea;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.98rem;
+            }
+
+            .article-detail {
+                padding: 20px;
+            }
+
+            .quiz-container {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <div class="container navbar">
+            <a href="#beranda" class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>E-POSRESIK PUSKESMAS KETROWONOJOYO</span>
+            </a>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#beranda" class="active" onclick="closeMenu()">Beranda</a>
+                <a href="#artikel" onclick="closeMenu()">Artikel</a>
+                <a href="#tips" onclick="closeMenu()">Tips & Mitos</a>
+                <a href="#kuis" onclick="closeMenu()">Kuis</a>
+                <a href="#tentang" onclick="closeMenu()">Tentang</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="badge-puskesmas">
+                <i class="fa-solid fa-hospital-user"></i> Pusat Edukasi Kesehatan Remaja Puskesmas
+            </div>
+            <h1>Sahabat Sehat Remaja Indonesia</h1>
+            <p>Informasi kesehatan yang akurat, ramah, dan ramah remaja. Pahami tubuhmu, jaga kesehatanmu, dan raih masa depan gemilang bersama layanan Puskesmas!</p>
+            <a href="#artikel" class="btn-card" style="background: var(--primary-color); color: white;">Eksplorasi Materi</a>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <!-- ARTIKEL UTAMA SECTION -->
+        <section id="artikel">
+            <div class="section-title">
+                <h2>Materi Edukasi Utama</h2>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card card-1">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-person-half-dress"></i></div>
+                        <h3 class="card-title">Kesehatan Reproduksi & Personal Hygiene</h3>
+                        <p class="card-desc">Pahami perubahan tubuh saat pubertas, kebersihan organ reproduksi, dan pentingnya menghormati batasan diri.</p>
+                    </div>
+                    <button class="btn-card" onclick="openArticle('art1')">Baca Selengkapnya</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card card-2">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <h3 class="card-title">Pencegahan Anemia & Tablet Tambah Darah</h3>
+                        <p class="card-desc">Ketahui gejala 5L, cegah anemia dengan gizi tepat dan konsumsi TTD teratur bagi remaja putri.</p>
+                    </div>
+                    <button class="btn-card" onclick="openArticle('art2')">Baca Selengkapnya</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card card-3">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                        <h3 class="card-title">Gizi Seimbang Remaja Sehat</h3>
+                        <p class="card-desc">Terapkan konsep Isi Piringku, pentingnya sarapan pagi, dan pilihan menu sehat yang terjangkau.</p>
+                    </div>
+                    <button class="btn-card" onclick="openArticle('art3')">Baca Selengkapnya</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card card-4">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="card-title">Manajemen Stres & Kesehatan Jiwa</h3>
+                        <p class="card-desc">Kelola tekanan belajar dan pertemanan dengan cara sehat, serta ketahui kapan perlu curhat ke profesional.</p>
+                    </div>
+                    <button class="btn-card" onclick="openArticle('art4')">Baca Selengkapnya</button>
+                </div>
+            </div>
+
+            <!-- DETAIL ARTIKEL 1 -->
+            <article id="art1" class="article-detail">
+                <div class="article-header">
+                    <h2><i class="fa-solid fa-person-half-dress" style="color: #ff758c;"></i> Kesehatan Reproduksi & Personal Hygiene Remaja</h2>
+                    <button class="btn-close-article" onclick="closeArticle('art1')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="article-content">
+                    <h3>Memahami Masa Pubertas</h3>
+                    <p>Masa pubertas adalah masa peralihan dari anak-anak menuju dewasa. Pada masa ini, tubuh remaja mengalami berbagai perubahan akibat produksi hormon reproduksi. Remaja perempuan akan mengalami perkembangan payudara, pinggul membesar, dan terjadinya menstruasi. Remaja laki-laki akan mengalami perubahan suara menjadi lebih berat, dada membidang, serta mimpi basah.</p>
+                    <p>Ingatlah bahwa seluruh perubahan fisiknya merupakan hal yang <strong>normal dan merupakan bagian dari proses pertumbuhan manusia</strong>.</p>
+
+                    <h3>Menjaga Kebersihan Organ Reproduksi (Personal Hygiene)</h3>
+                    <p>Kebersihan area kewanitaan dan pria sangat penting untuk mencegah infeksi mikroorganisme seperti jamur dan bakteri:</p>
+                    <ul>
+                        <li><strong>Penggunaan Pembalut:</strong> Saat menstruasi, gantilah pembalut secara teratur setiap 4–6 jam sekali, atau lebih sering jika darah menstruasi sedang banyak.</li>
+                        <li><strong>Cara Membersihkan Genital:</strong> Basuh area genital dari arah depan ke belakang (dari organ intim ke arah anus) menggunakan air bersih agar bakteri dari anus tidak berpindah.</li>
+                        <li><strong>Pakaian Dalam:</strong> Gunakan pakaian dalam berbahan katun yang mudah menyerap keringat dan ganti minimal 2 kali sehari atau setiap kali terasa basah/lembap.</li>
+                        <li><strong>Keringkan Area Genital:</strong> Selalu keringkan area sensitif dengan handuk bersih atau tisu sebelum mengenakan celana kembali.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Menghargai Batasan Tubuh:</strong> Tubuhmu adalah milikmu. Penting untuk menjaga privasi, mengenali batasan dalam berinteraksi, dan saling menghormati batas tubuh orang lain.
+                    </div>
+                </div>
+            </article>
+
+            <!-- DETAIL ARTIKEL 2 -->
+            <article id="art2" class="article-detail">
+                <div class="article-header">
+                    <h2><i class="fa-solid fa-droplet" style="color: #11998e;"></i> Pencegahan Anemia & Pentingnya Tablet Tambah Darah (TTD)</h2>
+                    <button class="btn-close-article" onclick="closeArticle('art2')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="article-content">
+                    <h3>Apa itu Anemia?</h3>
+                    <p>Anemia adalah kondisi ketika kadar hemoglobin (Hb) dalam sel darah merah berada di bawah batas normal. Hemoglobin berfungsi membawa oksigen ke seluruh tubuh. Remaja putri memiliki risiko lebih tinggi terkena anemia karena mengalami kehilangan darah setiap bulan saat menstruasi.</p>
+
+                    <h3>Mengenali Gejala 5L</h3>
+                    <p>Anemia sering kali membuat tubuh terasa tidak fit dengan gejala umum 5L:</p>
+                    <ul>
+                        <li><strong>Lelak, Lemah, Lesu, Letih, Lunglai</strong></li>
+                        <li>Ditambah dengan gejala pendukung seperti pusing, mata berkunang-kunang, dan <em>Lalai berkonsentrasi</em> saat belajar.</li>
+                    </ul>
+
+                    <h3>Pencegahan Anemia dan Peran Tablet Tambah Darah (TTD)</h3>
+                    <p>Anemia dapat dicegah dengan mengonsumsi makanan kaya zat besi seperti hati ayam, daging merah, ikan, bayam, dan kacang-kacangan. Kombinasikan dengan vitamin C (seperti jeruk atau jambu biji) untuk membantu penyerapan zat besi.</p>
+
+                    <div class="highlight-box">
+                        <strong>Aturan Konsumsi TTD:</strong> Sesuai program pencegahan Kementerian Kesehatan, remaja putri dianjurkan mengonsumsi Tablet Tambah Darah (TTD) 1 tablet setiap minggu. Minumlah dengan air putih atau jus buah (jangan gunakan teh, kopi, atau susu karena dapat menghambat penyerapan zat besi). Jangan menggandakan dosis sendiri dan konsultasikan ke petugas kesehatan jika ada keluhan!
+                    </div>
+                </div>
+            </article>
+
+            <!-- DETAIL ARTIKEL 3 -->
+            <article id="art3" class="article-detail">
+                <div class="article-header">
+                    <h2><i class="fa-solid fa-bowl-food" style="color: #ff9966;"></i> Gizi Seimbang Remaja Sehat</h2>
+                    <button class="btn-close-article" onclick="closeArticle('art3')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="article-content">
+                    <h3>Prinsip "Isi Piringku"</h3>
+                    <p>Masa remaja adalah masa pertumbuhan pesat (growth spurt) yang membutuhkan pasokan gizi seimbang. Kementerian Kesehatan merekomendasikan panduan porsi makan harian dalam "Isi Piringku":</p>
+                    <ul>
+                        <li><strong>1/3 Piring:</strong> Makanan pokok (Nasi, jagung, kentang, singkong).</li>
+                        <li><strong>1/3 Piring:</strong> Sayur-sayuran (Bayam, kangkung, wortel, buncis).</li>
+                        <li><strong>1/6 Piring:</strong> Lauk-pauk berprotein (Telur, tempe, tahu, ikan, ayam).</li>
+                        <li><strong>1/6 Piring:</strong> Buah-buahan (Pisang, pepaya, jeruk, apel).</li>
+                    </ul>
+
+                    <h3>Contoh Menu Harian Bergizi dan Terjangkau</h3>
+                    <p>Sehat tidak harus mahal! Contoh susunan porsi makan sederhana:</p>
+                    <ul>
+                        <li>Nasi putih/merah secukupnya</li>
+                        <li>Telur dadar/rebus atau tempe goring/bacem</li>
+                        <li>Sayur bening bayam & wortel</li>
+                        <li>1 buah pisang lokal</li>
+                        <li>Air putih yang cukup (minimal 8 gelas sehari)</li>
+                    </ul>
+
+                    <h3>Kebiasaan Penting Lainnya</h3>
+                    <p>Selalu sempatkan untuk <strong>sarapan pagi</strong> sebelum beraktivitas agar fokus belajar terjaga. Batasi konsumsi makanan olahan tinggi gula, garam, dan lemak (seperti makanan cepat saji dan minuman kemasan manis), serta rutin berolahraga minimal 30 menit sehari.</p>
+                </div>
+            </article>
+
+            <!-- DETAIL ARTIKEL 4 -->
+            <article id="art4" class="article-detail">
+                <div class="article-header">
+                    <h2><i class="fa-solid fa-brain" style="color: #8e2de2;"></i> Manajemen Stres & Kesehatan Jiwa</h2>
+                    <button class="btn-close-article" onclick="closeArticle('art4')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="article-content">
+                    <h3>Mengapa Kesehatan Jiwa Penting?</h3>
+                    <p>Kesehatan jiwa sama pentingnya dengan kesehatan fisik. Remaja sering kali dihadapkan pada tekanan akademis, dinamika pertemanan, perubahan hormon, dan perencanaan masa depan yang dapat memicu stres atau emosi berlebih.</p>
+
+                    <h3>Langkah Praktis Mengelola Stres</h3>
+                    <ul>
+                        <li><strong>Istirahat Cukup:</strong> Tidur malam ideal selama 8–10 jam untuk remaja.</li>
+                        <li><strong>Latihan Pernapasan:</strong> Tarik napas dalam-dalam melalui hidung, tahan 3 detik, lalu hembuskan perlahan melalui mulut saat merasa cemas.</li>
+                        <li><strong>Manajemen Waktu:</strong> Buat jadwal belajar dan kegiatan secara teratur agar tidak menumpuk tugas di akhir waktu.</li>
+                        <li><strong>Salurkan Hobi:</strong> Luapkan energi positif dengan olahraga, seni, mendengarkan musik, atau membaca.</li>
+                        <li><strong>Bercerita:</strong> Jangan memendam beban sendirian. Bicara dengan sahabat, orang tua, atau guru yang dapat dipercaya.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Kapan Harus Mencari Bantuan?</strong> Apabila kecemasan, rasa sedih berkepanjangan, atau tekanan emosional mulai mengganggu tidur, nafsu makan, dan aktivitas harianmu, jangan ragu berkonsultasi dengan guru BK sekolah, orang tua/wali, atau petugas konseling di Puskesmas.
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- MATERI TAMBAHAN: TIPS, MITOS & FAKTA -->
+        <section id="tips">
+            <div class="section-title">
+                <h2>Tips & Mitos Kesehatan Remaja</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-circle-check" style="color: var(--primary-color);"></i> Kebiasaan Sehat Harian</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Minum air putih 8 gelas setiap hari.</li>
+                        <li><i class="fa-solid fa-check"></i> Cuci tangan pakai sabun sebelum makan.</li>
+                        <li><i class="fa-solid fa-check"></i> Bergerak aktif / olahraga 30 menit sehari.</li>
+                        <li><i class="fa-solid fa-check"></i> Hindari merokok dan minuman beralkohol.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-stethoscope" style="color: var(--primary-color);"></i> Kapan Harus ke Puskesmas?</h3>
+                    <p style="font-size: 0.9rem;">Segera kunjungi Puskesmas terdekat jika kamu mengalami:</p>
+                    <ul style="font-size: 0.9rem; margin-top: 8px;">
+                        <li>• Gejala anemia parah (sering pusing/pingsan).</li>
+                        <li>• Nyeri menstruasi berlebihan yang mengganggu aktivitas.</li>
+                        <li>• Keluhan kesehatan organ intim/gatal berlebih.</li>
+                        <li>• Ingin berkonsultasi mengenai kesehatan jiwa/stres.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 35px; margin-bottom: 20px; text-align: center;">Mitos vs Fakta Kesehatan</h3>
+            
+            <div class="myth-fact-item">
+                <div class="myth-title"><i class="fa-solid fa-xmark"></i> Mitos: Saat menstruasi tidak boleh keramas atau berolahraga.</div>
+                <div class="fact-title"><i class="fa-solid fa-check"></i> Fakta: Keramas dengan air hangat justru menjaga kebersihan, dan olahraga ringan dapat meredakan kram perut saat menstruasi.</div>
+            </div>
+
+            <div class="myth-fact-item">
+                <div class="myth-title"><i class="fa-solid fa-xmark"></i> Mitos: Minum Tablet Tambah Darah (TTD) bikin darah terlalu banyak.</div>
+                <div class="fact-title"><i class="fa-solid fa-check"></i> Fakta: TTD hanya membantu mengembalikan kadar hemoglobin ke tingkat normal, bukan menyebabkan kelebihan darah.</div>
+            </div>
+        </section>
+
+        <!-- KUIS EDUKASI 10 NOMOR -->
+        <section id="kuis">
+            <div class="section-title">
+                <h2>Kuis Edukasi Kesehatan Remaja</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Uji pemahamanmu dari 4 materi artikel di atas!</p>
+            </div>
+
+            <div class="quiz-container">
+                <!-- TAMPILAN PERTANYAAN KUIS -->
+                <div id="quiz-body">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="progress-fill"></div>
+                    </div>
+
+                    <div class="quiz-header-info">
+                        <span id="question-number">Soal 1 dari 10</span>
+                        <span id="category-badge" style="color: var(--primary-dark);">Kesehatan Reproduksi</span>
+                    </div>
+
+                    <div class="question-text" id="question-text">
+                        Pertanyaan akan muncul di sini...
+                    </div>
+
+                    <div class="options-container" id="options-container">
+                        <!-- Pilihan jawaban diisi oleh JavaScript -->
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button class="btn-quiz btn-prev" id="btn-prev" onclick="navigateQuiz(-1)" disabled>Sebelumnya</button>
+                        <button class="btn-quiz btn-next" id="btn-next" onclick="navigateQuiz(1)">Selanjutnya</button>
+                    </div>
+                </div>
+
+                <!-- TAMPILAN HASIL KUIS -->
+                <div id="quiz-result" class="quiz-result">
+                    <h2>Hasil Kuis Kamu</h2>
+                    <div class="score-circle">
+                        <div class="score-number" id="final-score">0</div>
+                        <div class="score-label">NILAI AKHIR</div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="val" id="stat-correct" style="color: #38a169;">0</div>
+                            <div class="lbl">Benar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="val" id="stat-wrong" style="color: #e53e3e;">0</div>
+                            <div class="lbl">Salah</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="val" id="stat-percent">0%</div>
+                            <div class="lbl">Persentase</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-quiz btn-next" onclick="resetQuiz()">Ulangi Kuis</button>
+
+                    <div class="review-section" id="review-section">
+                        <h3>Pembahasan Soal</h3>
+                        <!-- Review soal akan diisi JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TENTANG SECTION -->
+        <section id="tentang">
+            <div class="about-card">
+                <div class="section-title" style="margin-bottom: 20px;">
+                    <h2>Tentang Layanan Ini</h2>
+                </div>
+                <p style="text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 20px auto;">
+                    Website ini dikembangkan sebagai media informasi resmi pelayanan kesehatan remaja Puskesmas Ketrowonojo. Seluruh informasi disajikan mengacu pada standar panduan Kementerian Kesehatan Republik Indonesia (Kemenkes RI) dan World Health Organization (WHO).
+                </p>
+                <div class="consult-box">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 8px;"><i class="fa-solid fa-hand-holding-medical"></i> Layanan Konseling Remaja (PKPR)</h4>
+                    <p style="font-size: 0.95rem; color: #4a5568;">
+                        Puskesmas menyediakan Posyandu Remaja & Pelayanan Kesehatan Peduli Remaja (PKPR). Kamu bisa berkonsultasi mengenai pertumbuhan, gizi, kesehatan reproduksi, maupun kesehatan jiwa secara rahasia, nyaman, dan tanpa dihakimi secara gratis oleh tenaga medis profesional.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>E-POSRESIK PUSKESMAS KETROWONOJOYO</p>
+            <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.6;">© 2026 Layanan Kesehatan Masyarakat. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // --- NAVIGASI RESPONSIVE ---
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        function closeMenu() {
+            navLinks.classList.remove('show');
+        }
+
+        // --- ARTIKEL DETAIL MODAL / TOGGLE ---
+        function openArticle(artId) {
+            // Sembunyikan artikel lain dulu
+            document.querySelectorAll('.article-detail').forEach(el => el.classList.remove('active'));
+            
+            const target = document.getElementById(artId);
+            if (target) {
+                target.classList.add('active');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function closeArticle(artId) {
+            const target = document.getElementById(artId);
+            if (target) {
+                target.classList.remove('active');
+            }
+        }
+
+        // --- DATA KUIS EDUKASI (10 SOAL) ---
+        const quizData = [
+            // 3 Soal Kespro & Hygiene
+            {
+                category: "Kesehatan Reproduksi & Hygiene",
+                question: "Seberapa sering pembalut sebaiknya diganti saat menstruasi?",
+                options: [
+                    "Satu kali sehari saja",
+                    "Setiap 4–6 jam sekali atau saat sudah terasa penuh",
+                    "Dua hari sekali",
+                    "Hanya saat hendak mandi"
+                ],
+                correct: 1,
+                explanation: "Mengganti pembalut teratur setiap 4–6 jam sekali penting untuk mencegah perkembangbiakan bakteri dan infeksi pada area kewanitaan."
+            },
+            {
+                category: "Kesehatan Reproduksi & Hygiene",
+                question: "Bagaimanakah cara membersihkan area genital perempuan yang benar setelah buang air?",
+                options: [
+                    "Dari arah belakang ke depan",
+                    "Dari arah depan ke belakang menuju anus",
+                    "Menggunakan sabun wangi berkali-kali",
+                    "Cukup diusap dengan kain kering tanpa air"
+                ],
+                correct: 1,
+                explanation: "Membasuh dari depan ke belakang mencegah kuman/bakteri dari anus masuk ke saluran reproduksi atau kemih."
+            },
+            {
+                category: "Kesehatan Reproduksi & Hygiene",
+                question: "Pernyataan mana yang benar mengenai perubahan fisik saat pubertas?",
+                options: [
+                    "Merupakan penyakit yang harus diobati",
+                    "Tanda bahwa tubuh mengalami kelainan",
+                    "Bagian dari pertumbuhan dan perkembangan normal manusia",
+                    "Hanya terjadi pada remaja laki-laki"
+                ],
+                correct: 2,
+                explanation: "Perubahan fisik pada masa pubertas dipicu oleh hormon dan merupakan proses biologis yang sepenuhnya normal."
+            },
+            // 3 Soal Anemia & TTD
+            {
+                category: "Anemia & Tablet Tambah Darah",
+                question: "Berikut ini yang BUKAN merupakan bagian dari istilah gejala anemia '5L' adalah...",
+                options: [
+                    "Lelah",
+                    "Lesu",
+                    "Lapar",
+                    "Lunglai"
+                ],
+                correct: 2,
+                explanation: "Istilah 5L adalah Lelak, Lemah, Lesu, Letih, dan Lunglai. Lapar bukan bagian dari ringkasan gejala anemia ini."
+            },
+            {
+                category: "Anemia & Tablet Tambah Darah",
+                question: "Vitamin apakah yang sangat membantu meningkatkan penyerapan zat besi dalam tubuh?",
+                options: [
+                    "Vitamin C",
+                    "Vitamin D",
+                    "Vitamin K",
+                    "Vitamin E"
+                ],
+                correct: 0,
+                explanation: "Vitamin C (seperti dalam buah jeruk atau jambu) membantu mengubah zat besi menjadi bentuk yang lebih mudah diserap oleh usus."
+            },
+            {
+                category: "Anemia & Tablet Tambah Darah",
+                question: "Minuman manakah yang sebaiknya DIHINDARI saat meminum Tablet Tambah Darah (TTD)?",
+                options: [
+                    "Air putih hangat",
+                    "Jus jeruk",
+                    "Jus jambu biji",
+                    "Teh pekat atau susu"
+                ],
+                correct: 3,
+                explanation: "Zat tanin dalam teh dan kalsium dalam susu dapat mengikat zat besi sehingga menghambat penyerapannya di dalam tubuh."
+            },
+            // 2 Soal Gizi Seimbang
+            {
+                category: "Gizi Seimbang Remaja",
+                question: "Berdasarkan panduan 'Isi Piringku', porsi makanan pokok sebaiknya mengisi sekitar...",
+                options: [
+                    "3/4 bagian dari piring",
+                    "1/3 bagian dari piring",
+                    "Seluruh bagian piring",
+                    "1/10 bagian dari piring"
+                ],
+                correct: 1,
+                explanation: "Dalam konsep Isi Piringku Kemenkes RI, 1/3 piring diisi makanan pokok, 1/3 sayuran, 1/6 lauk pauk, dan 1/6 buah-buahan."
+            },
+            {
+                category: "Gizi Seimbang Remaja",
+                question: "Manakah contoh susunan menu harian yang seimbang dan terjangkau bagi remaja?",
+                options: [
+                    "Nasi, telur dada, sayur bening bayam, dan buah pisang",
+                    "Mie instan, nasi, dan kerupuk",
+                    "Minuman bersoda, gorengan, dan cokelat",
+                    "Hanya makan buah apel seharian"
+                ],
+                correct: 0,
+                explanation: "Kombinasi nasi (karbohidrat), telur (protein), bayam (vitamin/mineral/zat besi), dan pisang (serat/vitamin) memenuhi gizi seimbang."
+            },
+            // 2 Soal Manajemen Stres
+            {
+                category: "Manajemen Stres & Kesehatan Jiwa",
+                question: "Manakah langkah manajemen stres yang SEHAT dan aman dilakukan saat menghadapi ujian?",
+                options: [
+                    "Begadang seharian tanpa tidur",
+                    "Mengurung diri dan menolak makan",
+                    "Mengatur waktu belajar, latihan pernapasan, dan tidur cukup",
+                    "Meluapkan emosi dengan merusak barang"
+                ],
+                correct: 2,
+                explanation: "Manajemen waktu yang baik, istirahat cukup, serta relaksasi/pernapasan efektif menurunkan kadar stres akademik."
+            },
+            {
+                category: "Manajemen Stres & Kesehatan Jiwa",
+                question: "Ke manakah remaja dapat meminta bantuan jika mengalami kecemasan berat atau masalah emosional di sekolah?",
+                options: [
+                    "Guru Bimbingan Konseling (BK) atau Tenaga Kesehatan Puskesmas",
+                    "Akun media sosial yang tidak dikenal",
+                    "Memendamnya sendiri sampai hilang",
+                    "Meninggalkan sekolah tanpa memberi tahu"
+                ],
+                correct: 0,
+                explanation: "Guru BK, orang tua, dan petugas kesehatan/konselor Puskesmas adalah pihak profesional yang aman dan tepercaya untuk diajak berkonsultasi."
+            }
+        ];
+
+        // --- STATE KUIS ---
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // --- ELEMEN KUIS ---
+        const questionNumberEl = document.getElementById('question-number');
+        const categoryBadgeEl = document.getElementById('category-badge');
+        const questionTextEl = document.getElementById('question-text');
+        const optionsContainerEl = document.getElementById('options-container');
+        const progressFillEl = document.getElementById('progress-fill');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const quizBodyEl = document.getElementById('quiz-body');
+        const quizResultEl = document.getElementById('quiz-result');
+
+        // --- INI SCRIPT RENDER SOAL ---
+        function loadQuestion() {
+            const currentQuiz = quizData[currentQuestionIndex];
+            
+            // Update Header & Progress
+            questionNumberEl.innerText = `Soal ${currentQuestionIndex + 1} dari ${quizData.length}`;
+            categoryBadgeEl.innerText = currentQuiz.category;
+            progressFillEl.style.width = `${((currentQuestionIndex + 1) / quizData.length) * 100}%`;
+
+            // Update Text Soal
+            questionTextEl.innerText = `${currentQuestionIndex + 1}. ${currentQuiz.question}`;
+
+            // Clear Pilihan Jawaban
+            optionsContainerEl.innerHTML = '';
+
+            // Render Pilihan Jawaban
+            const prefixes = ['A', 'B', 'C', 'D'];
+            currentQuiz.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                if (userAnswers[currentQuestionIndex] === index) {
+                    btn.classList.add('selected');
+                }
+
+                btn.innerHTML = `
+                    <span class="option-prefix">${prefixes[index]}</span>
+                    <span>${option}</span>
+                `;
+
+                btn.onclick = () => selectOption(index);
+                optionsContainerEl.appendChild(btn);
+            });
+
+            // Update Tombol Navigasi
+            btnPrev.disabled = currentQuestionIndex === 0;
+
+            if (currentQuestionIndex === quizData.length - 1) {
+                btnNext.innerText = 'Selesaikan Kuis';
+                btnNext.style.background = '#38a169';
+            } else {
+                btnNext.innerText = 'Selanjutnya';
+                btnNext.style.background = 'var(--primary-color)';
+            }
+        }
+
+        function selectOption(index) {
+            userAnswers[currentQuestionIndex] = index;
+            // Re-render pilihan untuk update status 'selected'
+            const buttons = optionsContainerEl.querySelectorAll('.option-btn');
+            buttons.forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.classList.add('selected');
+                } else {
+                    btn.classList.remove('selected');
+                }
+            });
+        }
+
+        function navigateQuiz(direction) {
+            // Simpan posisi sebelum berpindah
+            if (direction === 1) {
+                // Jika ini soal terakhir dan ditekan Selanjutnya/Selesaikan
+                if (currentQuestionIndex === quizData.length - 1) {
+                    finishQuiz();
+                    return;
+                }
+                currentQuestionIndex++;
+            } else if (direction === -1) {
+                currentQuestionIndex--;
+            }
+            loadQuestion();
+        }
+
+        function finishQuiz() {
+            // Hitung Skor
+            let correctCount = 0;
+            quizData.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const score = correctCount * 10;
+            const wrongCount = quizData.length - correctCount;
+            const percentage = (correctCount / quizData.length) * 100;
+
+            // Sembunyikan Body Kuis & Tampilkan Hasil
+            quizBodyEl.style.display = 'none';
+            quizResultEl.classList.add('active');
+
+            // Set Skor
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('stat-correct').innerText = correctCount;
+            document.getElementById('stat-wrong').innerText = wrongCount;
+            document.getElementById('stat-percent').innerText = `${percentage}%`;
+
+            // Generate Review Pembahasan
+            const reviewContainer = document.getElementById('review-section');
+            reviewContainer.innerHTML = '<h3>Pembahasan Soal</h3>';
+
+            const prefixes = ['A', 'B', 'C', 'D'];
+
+            quizData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = userAns === q.correct;
+
+                const reviewItem = document.createElement('div');
+                reviewItem.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
+
+                const userAnsText = userAns !== null ? `${prefixes[userAns]}. ${q.options[userAns]}` : 'Tidak dijawab';
+                const correctAnsText = `${prefixes[q.correct]}. ${q.options[q.correct]}`;
+
+                reviewItem.innerHTML = `
+                    <div class="review-q">${idx + 1}. ${q.question}</div>
+                    <div class="review-ans">
+                        <strong>Jawaban Kamu:</strong> <span style="color: ${isCorrect ? '#38a169' : '#e53e3e'}">${userAnsText}</span>
+                    </div>
+                    ${!isCorrect ? `<div class="review-ans"><strong>Jawaban Benar:</strong> <span style="color: #38a169">${correctAnsText}</span></div>` : ''}
+                    <div class="review-exp"><strong>Pembahasan:</strong> ${q.explanation}</div>
+                `;
+
+                reviewContainer.appendChild(reviewItem);
+            });
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            quizResultEl.classList.remove('active');
+            quizBodyEl.style.display = 'block';
+            loadQuestion();
+        }
+
+        // Inisialisasi Kuis Pertama Kali saat Page Load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadQuestion();
+        });
+    </script>
+</body>
+</html>
